@@ -22,7 +22,7 @@
                 type="text" 
                 class="form-control" 
                 id="price" name="price" 
-                placeholder="7.89 -- utilize . para separar a casa decimal" 
+                placeholder="7,89" 
                 value="<?= $registry['price']; ?>"
                 required> 
             </div>

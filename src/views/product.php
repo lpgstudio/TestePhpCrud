@@ -10,7 +10,7 @@
             </div>
             <div class="form-group ">
             <label for="price">Valor do Produto</label>
-            <input type="text" class="form-control" id="price" name="price" placeholder="7.89 -- utilize . para separar a casa decimal" required> 
+            <input type="text" class="form-control" id="price" name="price" placeholder="7,89" required> 
             </div>
             <div class="form-group ">
                 <label for="category">Categoria</label>

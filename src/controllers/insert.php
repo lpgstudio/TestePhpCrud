@@ -10,12 +10,13 @@ try{
     $erros = [];
     $time = date('H:i:s');
     $date = date('Y-m-d');
+    $priceForm = str_replace(",",".",$_POST['price']);
   
     $arr['user_id'] =  $user->id;
     $arr['buy_date'] = $date;
     $arr['buy_hour'] = $time;
     $arr['product_name'] = $_POST['product_name'];
-    $arr['price'] = $_POST['price'];
+    $arr['price'] = $priceForm;
     $arr['category'] = $_POST['category'];
     $arr['perishable'] = $_POST['perishable'];
     
