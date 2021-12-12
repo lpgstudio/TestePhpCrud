@@ -56,6 +56,16 @@ class Model{
         }
     }
 
+    public static function getResultSetFromPage($userID, $page_first_result, $results_per_page){
+       $sql = "SELECT * FROM products WHERE user_id = ". static::getFormatedValues($userID) ." LIMIT $page_first_result,$results_per_page";
+        $result = Database::getResultFromQuery($sql);
+        if($result->num_rows === 0){
+            return null;
+        } else{
+            return $result; 
+        }
+    }
+
     public static function deleteFromID($id){
         $sql = "DELETE FROM " 
             . static::$tableName . " WHERE id = " 

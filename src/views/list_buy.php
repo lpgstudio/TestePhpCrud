@@ -34,5 +34,12 @@
                 <?php endforeach ?>
                 </tbody>
             </table>
+            <nav aria-label="Page navigation example mt-5">
+                <ul class="pagination justify-content-center">
+                    <?php for($i = 1; $i <= $number_of_page; $i++): ?>
+                    <li class="page-item"><a class="page-link" href="?page=<?echo $i?>"><?echo $i?></a></li>
+                    <?php endfor ?>
+                </ul>
+            </nav>
         </div>
     </div>
