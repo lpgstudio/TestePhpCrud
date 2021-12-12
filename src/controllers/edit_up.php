@@ -11,12 +11,13 @@ try{
     $erros = [];
     $time = date('H:i:s');
     $date = date('Y-m-d');
+    $priceForm = str_replace(",",".",$dados['price']);
   
     $arr['user_id'] =  $user->id;
     $arr['buy_date'] = $date;
     $arr['buy_hour'] = $time;
     $arr['product_name'] = $dados['product_name'];
-    $arr['price'] = $dados['price'];
+    $arr['price'] = $priceForm;
     $arr['category'] = $dados['category'];
     $arr['perishable'] = $dados['perishable'];
     $arr['id'] = $dados['id'];
