@@ -18,6 +18,7 @@ require_once(realpath(dirname(__FILE__) . '/utils.php'));
 require_once (realpath(MODEL_PATH . '/Model.php'));
 require_once (realpath(MODEL_PATH . '/User.php'));
 require_once (realpath(MODEL_PATH . '/Product.php'));
+require_once (realpath(CONTROLLER_PATH . '/favicon.ico'));
 require_once (realpath(EXCEPTION_PATH . '/AppException.php'));
 require_once (realpath(EXCEPTION_PATH . '/ValidationException.php'));
 

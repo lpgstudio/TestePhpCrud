@@ -1,1 +1,4 @@
 env.ini
+error_log
+src/controllers/favicon.ico
+src/controllers/teste.php

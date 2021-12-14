@@ -12,4 +12,4 @@ try{
     addErrorMsg('Algo deu errado');
 }
 
-header('Location: http://localhost/list_buy.php');
+header('Location: /list_buy.php');

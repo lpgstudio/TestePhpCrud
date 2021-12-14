@@ -23,7 +23,7 @@
                         <td><?= $registry['id'] ?></td>
                         <td><?= formatDateWithLocale($registry['buy_date'], '%d/%m/%Y - ').$registry['buy_hour'] ?></td>
                         <td><?= $registry['product_name'] ?></td>
-                        <td><?= 'R$ '. number_format($registry['price'],2,",","."); ?></td>
+                        <td><?= 'R$ '. $price['price']; ?></td>
                         <td><?= $registry['category'] ?></td>
                         <td><?= $registry['perishable'] ?></td>
                         <td>

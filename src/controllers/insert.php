@@ -2,7 +2,7 @@
 error_reporting(~E_ALL);
 session_start();
 requireValidSession();
-include(TEMPLATE_PATH . "/messages.php");
+$conexao = Database::getConnection();
 $user = $_SESSION['user'];
 
 try{
@@ -10,19 +10,21 @@ try{
     $erros = [];
     $time = date('H:i:s');
     $date = date('Y-m-d');
-    $priceForm = str_replace(",",".",$_POST['price']);
+    $priceForm1 = str_replace(",",".",$dados['price']);
+    $priceForm = filter_var( $priceForm1, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION );
+    $productNameSanitize = filter_var($_POST['product_name'], FILTER_SANITIZE_SPECIAL_CHARS);
   
     $arr['user_id'] =  $user->id;
     $arr['buy_date'] = $date;
     $arr['buy_hour'] = $time;
-    $arr['product_name'] = $_POST['product_name'];
+    $arr['product_name'] = $productNameSanitize;
     $arr['price'] = $priceForm;
     $arr['category'] = $_POST['category'];
     $arr['perishable'] = $_POST['perishable'];
     
     $sql = "INSERT INTO products (user_id, buy_date, buy_hour, product_name, price, category, perishable) VALUES(?, ?, ?, ?, ?, ?, ?)";
     
-    $conexao = Database::getConnection();
+    
     $stmt = $conexao->prepare($sql);
     
     $params = [
@@ -36,16 +38,19 @@ try{
         ];
         
         $stmt->bind_param("isssdss", ...$params);
-
+    
          if($stmt->execute()){
             addSuccessMsg('Produto inserido com sucesso!');
              unset($arr); 
          }else{
              echo "Error: ". $conexao->error;
+
          }
+        
 }catch(AppException $e){
     echo $e->getMessage();
     
 }
 
-header('Location: http://localhost/product.php');
+header('Location: /list_buy.php');
+

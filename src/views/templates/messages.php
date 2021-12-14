@@ -1,4 +1,5 @@
 <?php
+error_reporting(~E_ALL);
 $errors = [];
 
 if(isset($_SESSION['message'])){
@@ -14,7 +15,7 @@ if(isset($_SESSION['message'])){
         $errors = $exception->getErros();
     }
 }
-
+ 
 $alertType = '';
 
 if($message['type'] === 'error'){

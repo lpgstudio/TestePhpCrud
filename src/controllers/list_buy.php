@@ -32,8 +32,10 @@ $number_of_page  =  ceil( $produto  /  $results_per_page );
 
 $result = Product::getResultSetFromPage($userID, $page_first_result, $results_per_page);
 
+
 loadTemplateView('list_buy', [
-    'result' => $result, 
+    'result' => $result,
+    'price' => $price,
     'produto' => $produto,
     'number_of_page' => $number_of_page,
 ]);
